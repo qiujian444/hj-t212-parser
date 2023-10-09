@@ -2,12 +2,15 @@ package com.xy.format.hbt212.core.converter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.xy.format.hbt212.base.Converter;
-import com.xy.format.hbt212.model.standard.*;
 import com.xy.format.hbt212.model.expand.T212Map;
+import com.xy.format.hbt212.model.standard.*;
 import com.xy.format.segment.base.cfger.Configurator;
 import com.xy.format.segment.base.cfger.Configured;
 
-import java.util.*;
+import java.util.AbstractMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 
@@ -154,7 +157,7 @@ public class DataReverseConverter
                 .convertValue(data,Map.class);
         if(data.getDataFlag() != null &&
                 !data.getDataFlag().isEmpty()){
-            map.remove(Data.FLAG);
+            //map.remove(Data.FLAG);
             String flag = convertDataFlag(data.getDataFlag());
             map.put(Data.FLAG,flag);
         }
